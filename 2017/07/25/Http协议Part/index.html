@@ -24,7 +24,7 @@
 <meta property="og:description" content="HTTP之URL统一资源定位符，比如  http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;amp;ID=24618&amp;amp;page=1#name  协议部分：http协议 域名部分：此处域名部分为www.aspxfans.com。一个URL中，也可以使用IP地址作为域名使用 端口部分：跟在域名后面的是端口，域名和端口之间使用:。若省略端口">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2964446-fdfb1a8fce8de946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&_=5984001">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2964446-1c4cab46f270d8ee.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&_=5984001">
-<meta property="og:updated_time" content="2017-07-25T09:56:31.269Z">
+<meta property="og:updated_time" content="2017-07-26T02:22:43.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http协议Part | 她在学习">
 <meta name="twitter:description" content="HTTP之URL统一资源定位符，比如  http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;amp;ID=24618&amp;amp;page=1#name  协议部分：http协议 域名部分：此处域名部分为www.aspxfans.com。一个URL中，也可以使用IP地址作为域名使用 端口部分：跟在域名后面的是端口，域名和端口之间使用:。若省略端口">
@@ -191,7 +191,7 @@ classes that you can use:
 <p>消息请求包括：请求行，请求头部，空行和请求数据四个部分</p>
 <ul>
 <li>请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本</li>
-<li>请求头部。HOST将支出请求的目的地。User-Agent 浏览器类型检验逻辑的重要基础</li>
+<li>请求头部。HOST将支出请求的目的地。User-Agent 浏览器类型检验逻辑的重要基础；Connection：允许客户端和服务器指定与请求/响应连接有关的选项，例如这是为Keep-Alive则表示保持连接；Accept：客户端可识别的内容类型列表，用于指定客户端接收那些类型的信息；Accept-Encoding：客户端可识别的数据编码；Accept-Language：表示浏览器所支持的语言类型。</li>
 <li>空行 请求头部后面的空行是必须的</li>
 <li>请求数据 也叫做主体，可以添加任意的其他数据</li>
 </ul>
@@ -201,6 +201,11 @@ classes that you can use:
 <p>消息报头，用来说明客户端要使用的一些附加信息（Content-Type指定了MIME类型的HTML）</p>
 <p>空行，消息报头后面的空行是必须的</p>
 <p>响应正文，服务器返回给客户端的文本信息</p>
+<h3 id="Content-Type字段"><a href="#Content-Type字段" class="headerlink" title="Content-Type字段"></a>Content-Type字段</h3><blockquote>
+<p>text/plain<br>text/html<br>text/css<br>image/jpeg<br>image/png<br>image/svg+xml<br>audio/mp4<br>video/mp4<br>application/javascript<br>application/pdf<br>application/zip<br>application/atom+xml</p>
+</blockquote>
+<p>这些数字类型总称为MIME type，每个值包含一级类型和二级类型</p>
+<p>还可以在尾部使用分号，添加参数</p>
 <p>#HTTP之状态码</p>
 <p>状态码由三位数字组成，第一个数字定义了响应的类别，共分为五种类别：</p>
 <p>1xx：指示信息–表示请求已经接受，继续处理</p>
@@ -218,7 +223,21 @@ classes that you can use:
 <p>因此，GET提交的数据会在地址栏中显示出来，而POST提交，地址栏不会更改</p>
 </li>
 </ol>
-<p>​</p>
+<ol>
+<li>传输数据的大小：在实际开发中存在的限制有：</li>
+</ol>
+<p>   GET：特定浏览器和核武器对URL长度有限制，因此对于GET提交时，传输数据就会受到URL长度的限制</p>
+<p>   POST：由于不是通过URL传值，理论上数据不受限。但实际各个WEB服务器会对POST提交数据大小进行限制。</p>
+<ol>
+<li><p>安全性</p>
+<p>POST的安全性要比GET的安全性高</p>
+</li>
+<li><p>Http get,post,soap协议都是在http上运行的<br>（1）get：请求参数是作为一个key/value对的序列（查询字符串）附加到URL上的<br>查询字符串的长度受到web浏览器和web服务器的限制（如IE最多支持2048个字符），不适合传输大型数据集同时，它很不安全</p>
+<p>（2）post：请求参数是在http标题的一个不同部分（名为entity body）传输的，这一部分用来传输表单信息，因此必须将Content-type设置为:application/x-www-form- urlencoded。post设计用来支持web窗体上的用户字段，其参数也是作为key/value对传输。<br>但是：它不支持复杂数据类型，因为post没有定义传输数据结构的语义和规则。</p>
+<p>（3）soap：是http post的一个专用版本，遵循一种特殊的xml消息格式<br>Content-type设置为: text/xml 任何数据都可以xml化。</p>
+</li>
+</ol>
+<p>Http协议定义了很多与服务器交互的方法，最基本的有4种，分别是GET,POST,PUT,DELETE. 一个URL地址用于描述一个网络上的资源，而HTTP中的GET, POST, PUT, DELETE就对应着对这个资源的查，改，增，删4个操作。 我们最常见的就是GET和POST了。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息.</p>
 
   </section>
 
