@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/26/Java-Review/index.html">
 <meta property="og:site_name" content="她在学习">
 <meta property="og:description" content="把衍生类型当做它的基本类型处理的过程叫做“Upcasting”（上溯造型），这是避免去调查准确类型的好办法 用abstract关键字描述一个尚未实现的方法。继承了一个类后，那个方法就必须实现，否则继承的类也会变成”抽象”类。若试图创建抽象类的一个对象，编译器就会阻止 上溯造型是安全的，下溯造型很难保证安全 类成员默认值   主类型 默认值Boolean falseChar ‘\u0000’(nu">
-<meta property="og:updated_time" content="2017-07-26T10:03:31.214Z">
+<meta property="og:updated_time" content="2017-07-31T02:25:21.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Review | 她在学习">
 <meta name="twitter:description" content="把衍生类型当做它的基本类型处理的过程叫做“Upcasting”（上溯造型），这是避免去调查准确类型的好办法 用abstract关键字描述一个尚未实现的方法。继承了一个类后，那个方法就必须实现，否则继承的类也会变成”抽象”类。若试图创建抽象类的一个对象，编译器就会阻止 上溯造型是安全的，下溯造型很难保证安全 类成员默认值   主类型 默认值Boolean falseChar ‘\u0000’(nu">
@@ -181,8 +181,17 @@ classes that you can use:
 </blockquote>
 <p>如果是局部变量，并非一个类的字段。变量将会得到随机值，而不会自动初始化成零</p>
 <ol>
-<li>软件包以小写字母为标准</li>
-<li>所有Javadoc命令都只能出现于”/<em>*”注释中，注释结束于一个”\</em>/“</li>
+<li><p>软件包以小写字母为标准</p>
+</li>
+<li><p>所有Javadoc命令都只能出现于”/<em>*”注释中，注释结束于一个”\</em>/“</p>
+</li>
+<li><p>当程序中用到的数值位数特别多时，可以在数值中使用下划线，更直观的分辨数值中到底包含多少位</p>
+</li>
+<li><p>byte类型不能自动转换为char类型</p>
+</li>
+<li><p>System.out.println(3+4+”Hello”);—–&gt;7Hello</p>
+<p>System.out.println(“Hello”+3+4);—–&gt;Hello34</p>
+</li>
 </ol>
 
   </section>

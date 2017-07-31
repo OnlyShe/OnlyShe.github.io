@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Java注解 | 她在学习 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="NieNie">
+    
+    
+
+    <meta name="description" content="@Target： @Target说明了Annotation所修饰的对象范围 ​    作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方） 　　取值(ElementType)有： 　　　　1.CONSTRUCTOR:用于描述构造器　　　　2.FIELD:用于描述域　　　　3.LOCAL_VARIABLE:用于描述局部变量　　　　4.METHOD:用于描述方法　　　　5.PACKAGE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java注解 | 她在学习">
+<meta property="og:url" content="http://yoursite.com/2017/07/31/Java注解/index.html">
+<meta property="og:site_name" content="她在学习">
+<meta property="og:description" content="@Target： @Target说明了Annotation所修饰的对象范围 ​    作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方） 　　取值(ElementType)有： 　　　　1.CONSTRUCTOR:用于描述构造器　　　　2.FIELD:用于描述域　　　　3.LOCAL_VARIABLE:用于描述局部变量　　　　4.METHOD:用于描述方法　　　　5.PACKAGE">
+<meta property="og:updated_time" content="2017-07-31T06:05:20.955Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java注解 | 她在学习">
+<meta name="twitter:description" content="@Target： @Target说明了Annotation所修饰的对象范围 ​    作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方） 　　取值(ElementType)有： 　　　　1.CONSTRUCTOR:用于描述构造器　　　　2.FIELD:用于描述域　　　　3.LOCAL_VARIABLE:用于描述局部变量　　　　4.METHOD:用于描述方法　　　　5.PACKAGE">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">她在学习</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Java注解</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-31" class="post-meta__date date">2017-07-31</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <ol>
+<li><p>@Target：</p>
+<p>@Target说明了Annotation所修饰的对象范围</p>
+<p>​    作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方）</p>
+<p>　　取值(ElementType)有：</p>
+<p>　　　　1.CONSTRUCTOR:用于描述构造器<br>　　　　2.FIELD:用于描述域<br>　　　　3.LOCAL_VARIABLE:用于描述局部变量<br>　　　　4.METHOD:用于描述方法<br>　　　　5.PACKAGE:用于描述包<br>　　　　6.PARAMETER:用于描述参数<br>　　　　7.TYPE:用于描述类、接口(包括注解类型) 或enum声明<br>　　　　8.ANNOTATION_TYPE：可以用来修饰注解类型；</p>
+</li>
+<li><p>Retention</p>
+<p>这个元注解表示一个注解会被保留到什么时候。</p>
+<p>定义注解使用@interface关键字</p>
+<p>我们在使用@Retention时，后面括号里面的内容即表示它的取值，取值的类型为RetentionPolicy,这个是一个枚举类型，可以取自以下值：</p>
+<ul>
+<li>SOURCE：表示在编译时这个注解会被移除，不会包含在编译后产生的class文件中；</li>
+<li>CLASS：表示这个注解会被包含在class文件中，但在运行时会被移除；</li>
+<li>RUNTIME：表示这个注解会被保留到运行时，在运行时可以JVM访问到，我们可以在运行时通过反射解析这个注解。</li>
+</ul>
+</li>
+<li><p>Documented</p>
+<p>无论在哪里使用这个注解，都会被Javadoc工具文档化</p>
+</li>
+<li><p>Inherited</p>
+<p>表明被修饰的注解类型是自动继承的。如果想让一个类和它的子类都包含某个注解，可以使用这个来修饰这个注解。</p>
+</li>
+<li><p>override</p>
+<p>修饰方法，并且旨在编译时有效，告诉编译器被修饰的方法是重写得到父类中的相同签名的方法。编译器会对此做出检查，若发现父类中不存在这个方法或是存在的方法签名不同，则会报错</p>
+</li>
+<li><p>Deprecated</p>
+<p>它会被文档化，能够保留到运行时，能够修饰构造方法、属性、局部变量、方法、包、参数、类型。这个注解的作用是说明被修饰的程序元素已被“废弃”，不再建议用户使用。</p>
+</li>
+<li><p>SuppressWarnings</p>
+<p>它能够修饰的程序元素包括类型、属性、方法、参数、构造器、局部变量，只能存活在源码时，取值为String[]。它的作用是告诉编译器忽略指定的警告信息，它可以取的值如下所示：</p>
+<ul>
+<li><p>deprecation：忽略使用了废弃的类或方法时的警告；</p>
+</li>
+<li><p>unchecked：执行了未检查的转换；</p>
+</li>
+<li><p>fallthrough：swich语句款中case忘加break从而直接“落入”下一个case；</p>
+</li>
+<li><p>path：类路径或原文件路径等不存在；</p>
+</li>
+<li><p>serial：可序列化的类缺少serialVersionUID；</p>
+</li>
+<li><p>finally：存在不能正常执行的finally子句；</p>
+</li>
+<li><p>all：以上所有情况产生的警告均忽略。</p>
+<p>例子：</p>
+<p>@SuppressWarning(value={“deprecation”,”checked”})</p>
+<p>public void myMethos(){…}</p>
+<p>我们告诉编译器忽略myMethod方法中由于“使用了废弃的类或方法或是做了未检查的转换”而产生的警告。</p>
+</li>
+</ul>
+</li>
+<li><p>在自定义注解时，有以下几点需要我们了解：</p>
+<ul>
+<li>注解类型是通过”@interface“关键字定义的；</li>
+<li>在”注解体“中，所有的方法均没有方法体且且只允许public和abstract这两种修饰符号（不加修饰符缺省为public），注解方法不允许有throws子句；</li>
+<li>注解方法的返回值只能为以下几种：原始数据类型, String, Class,枚举类型, 注解和它们的一维数组，可以为方法指定默认返回值。</li>
+</ul>
+</li>
+<li><p>Controller</p>
+<p>Controller控制器是通过服务接口定义的提供访问应用程序的一种行为，它解释用户的输入，将其转换成一个模型然后将试图呈献给用户。</p>
+</li>
+<li><p>RequestMapping</p>
+<p>@RequestMapping 注解将类似 “/favsoft”这样的URL映射到整个类或特定的处理方法上。一般来说，类级别的注解映射特定的请求路径到表单控制器上，而方法级别的注解只是映射为一个特定的HTTP方法请求（“GET”，“POST”等）或HTTP请求参数。</p>
+</li>
+<li><p>PathVariable</p>
+<p>在Spring MVC中，可以使用 @PathVariable 注解方法参数并将其绑定到URI模板变量的值上。</p>
+</li>
+<li><p>RequestParam</p>
+<p>将请求的参数绑定到方法中的参数上，如下面的代码所示。其实，即使不配置该参数，注解也会默认使用该参数。如果想自定义指定参数的话，如果将@RequestParam的 required 属性设置为false（如@RequestParam（value=”id”,required=false））。</p>
+</li>
+<li><p>RequestBody</p>
+<p>指方法参数应该被绑定到HTTP请求Body上。</p>
+</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
