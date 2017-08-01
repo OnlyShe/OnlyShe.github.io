@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/29/Spring-Study/index.html">
 <meta property="og:site_name" content="她在学习">
 <meta property="og:description" content="@SpringBootApplication组合了 3 个其他的注解，也就是@Configuration、@EnableAutoConfiguration 和 @ComponentScan @Configuration 它表明我们的这个类将会处理 Spring 的常规配置 @ComponentScan会告诉 Spring 去哪里查找 Spring 组 件（服务、控制器等）。在默认情况下，这个注解">
-<meta property="og:updated_time" content="2017-07-29T14:02:58.813Z">
+<meta property="og:updated_time" content="2017-08-01T06:56:06.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Study | 她在学习">
 <meta name="twitter:description" content="@SpringBootApplication组合了 3 个其他的注解，也就是@Configuration、@EnableAutoConfiguration 和 @ComponentScan @Configuration 它表明我们的这个类将会处理 Spring 的常规配置 @ComponentScan会告诉 Spring 去哪里查找 Spring 组 件（服务、控制器等）。在默认情况下，这个注解">
@@ -182,8 +182,33 @@ classes that you can use:
 <p>debug=true 配置debug模式</p>
 <p>server.port = 8081 配置端口 通过将该变量设置为−1，可以禁用 HTTP，或者将其配置为 0，这样的话，就会在随机 的端口上启动应用。<br>server.contextPath = /demo  配置路径</p>
 </li>
-<li><p>​</p>
+<li><p>IoC</p>
+<p>将类与类之间的依赖从代码中脱离出来，用配置的方式进行依赖关系描述，由此容器负责依赖类之间的创建、拼接、管理、获取等工作。</p>
+<p>BeanFactory接口是Spring框架的核心接口。</p>
+<p>Context模块构建于核心模块之上，拓展了BeanFactory的功能。</p>
+<p>表达式语言模块是统一表达式语言的一个拓展，该表达式语言用于查询和管理运行期的对象</p>
 </li>
+<li><p>AOP</p>
+<p>是进行横切逻辑编程的思想，开拓了考虑问题的思路。在这个模块中Spring提供了满足AOP Alliancea规范的实现，还整合了AspectJ这种AOP语言级的框架。在Java 5.0引入了java.lang.instrument ，允许在JVM启动时启用一个代理类，在运行期修改类的字节码，改变一个类的功能，从而实现AOP的功能。</p>
+</li>
+<li><p>@Conditional注解：类似于@Profile，一般用于在多个环境（开发环境，测试环境，正式机环境）中进行配置切换，即通过某个配置来开启某个环境。优点是允许自己定义规则。可以指定在如@Component、@Bean、@Configuration等注解的类上，以决定是否创建Bean等</p>
+</li>
+<li><p>领域对象（Domain Object）也被称为实体类，代表了业务的状态，且贯穿展现层、业务层和持久层，最终被持久化到数据库中。领域对象不一定等同于数据库表，不过对于简单的应用来说，领域对象往往拥有对应的数据库表。</p>
+</li>
+<li><p>持久层的主要工作就是从数据库表中加载数据并实例化领域对象，或将领域对象持久化到数据库表中。</p>
+</li>
+<li><p>在Dao中使用JdbcTemplate#query()方法，该方法的签名为query(String sql,Object[] args,RowCallbackHandler rch)，有三个入参。</p>
+<ul>
+<li>sqlStr:查询的SQL语句，允许使用带“？”的参数占位符</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>args:SQL语句中占位符对应的参数数组</li>
+<li>RowCallbackHandler:查询结果的处理回调接口，该回调接口有一个方法processRow(ResultSet rs)负责将查询的结果从ResultSet装载到类似于领域对象的对象实例中。</li>
+</ul>
+<ol>
+<li>在DAO中编写SQL语句时，通常将SQL语句写在类静态变量中，会使代码更具有可读性。多行SQL语句在每行SQL语句的句前和句尾都加一个空格，这样就可以避免分行SQL语句组合后的错误。</li>
 </ol>
 
   </section>
