@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/29/Spring-Study/index.html">
 <meta property="og:site_name" content="她在学习">
 <meta property="og:description" content="@SpringBootApplication组合了 3 个其他的注解，也就是@Configuration、@EnableAutoConfiguration 和 @ComponentScan @Configuration 它表明我们的这个类将会处理 Spring 的常规配置 @ComponentScan会告诉 Spring 去哪里查找 Spring 组 件（服务、控制器等）。在默认情况下，这个注解">
-<meta property="og:updated_time" content="2017-08-03T03:25:03.866Z">
+<meta property="og:updated_time" content="2017-08-08T07:38:48.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Study | 她在学习">
 <meta name="twitter:description" content="@SpringBootApplication组合了 3 个其他的注解，也就是@Configuration、@EnableAutoConfiguration 和 @ComponentScan @Configuration 它表明我们的这个类将会处理 Spring 的常规配置 @ComponentScan会告诉 Spring 去哪里查找 Spring 组 件（服务、控制器等）。在默认情况下，这个注解">
@@ -250,23 +250,122 @@ Field:类成员变量的反射类，通过Class#getDeclaredFields()方法可以�
 
 在访问private或protected成员变量和方法时，必须通过setAccessible(boolean access)方法取消Java语言检查
 </code></pre><ol>
-<li><h5 id="Resource接口的主要方法"><a href="#Resource接口的主要方法" class="headerlink" title="Resource接口的主要方法"></a>Resource接口的主要方法</h5><p>boolean exists()  资源是否存在</p>
-<p>boolean isOpen()  资源是否打开</p>
-<p>URL getURL()throws IOException  如果底层资源可以表示成URL，则该方法返回对应的URL对象</p>
-<p>File getFile() throws IDException  如果底层资源对应一个文件，则该方法返回对应的文件对象</p>
-<p>InputStream getInputStream()  throws IOException 返回资源对应的输入流</p>
-<h5 id="通过资源地址的特殊标识就可以访问相应的资源："><a href="#通过资源地址的特殊标识就可以访问相应的资源：" class="headerlink" title="通过资源地址的特殊标识就可以访问相应的资源："></a>通过资源地址的特殊标识就可以访问相应的资源：</h5><p>classpath:  从类路径中加载资源，都是相对于类的根路径。资源文件可以在标准的文件系统中，也可以在JAR或ZIP的类包中</p>
-<p>file:     从UrlResource从文件系统目录中装载资源，可采用绝对或相对路径</p>
-<p>http://   使用UrlResource从WEB服务器中装载资源</p>
-<p>ftp://  使用UrlResource从ftp服务器中装载资源</p>
-<p>没有前缀 根据ApplicationContext的具体实现类采用对应类型的Resource</p>
-<p>其中，和“classpath:”对应的还有另一种比较难理解的“classpath*:”前缀。前者只能加载找到的第一个文件，而后者是为了从多个jar文件中加载相同的文件。</p>
-<p>Ant风格的资源地址支持3中匹配符：</p>
-<p>​    ？：一个字符</p>
-<p>​    *：任意字符</p>
-<p>​    **：多层路径</p>
+<li><h5 id="Resource接口的主要方法"><a href="#Resource接口的主要方法" class="headerlink" title="Resource接口的主要方法"></a>Resource接口的主要方法</h5></li>
+</ol>
+<pre><code>boolean exists()  资源是否存在
+
+boolean isOpen()  资源是否打开
+
+URL getURL()throws IOException  如果底层资源可以表示成URL，则该方法返回对应的URL对象
+
+File getFile() throws IDException  如果底层资源对应一个文件，则该方法返回对应的文件对象
+
+InputStream getInputStream()  throws IOException 返回资源对应的输入流
+
+##### 通过资源地址的特殊标识就可以访问相应的资源：
+
+classpath:  从类路径中加载资源，都是相对于类的根路径。资源文件可以在标准的文件系统中，也可以在JAR或ZIP的类包中
+
+file:     从UrlResource从文件系统目录中装载资源，可采用绝对或相对路径
+
+http://   使用UrlResource从WEB服务器中装载资源
+
+ftp://  使用UrlResource从ftp服务器中装载资源
+
+没有前缀 根据ApplicationContext的具体实现类采用对应类型的Resource
+
+其中，和“classpath:”对应的还有另一种比较难理解的“classpath*:”前缀。前者只能加载找到的第一个文件，而后者是为了从多个jar文件中加载相同的文件。
+
+Ant风格的资源地址支持3中匹配符：
+
+​    ？：一个字符
+
+​    *：任意字符
+
+​    **：多层路径
+</code></pre><ol>
+<li><h5 id="如果在-中指定Bean的作用范围为scope-”prototype”-则将Bean返回给调用者，调用者负责Bean后续生命的管理，Spring不再管理这个Bean的生命周期。如果将作用范围设置为scope-”singleton”，则将Bean放入IoC容器的缓存池中，并将Bean引用返回给调用者，Spring继续对这些Bean进行后续的生命管理。"><a href="#如果在-中指定Bean的作用范围为scope-”prototype”-则将Bean返回给调用者，调用者负责Bean后续生命的管理，Spring不再管理这个Bean的生命周期。如果将作用范围设置为scope-”singleton”，则将Bean放入IoC容器的缓存池中，并将Bean引用返回给调用者，Spring继续对这些Bean进行后续的生命管理。" class="headerlink" title="如果在\中指定Bean的作用范围为scope=”prototype”,则将Bean返回给调用者，调用者负责Bean后续生命的管理，Spring不再管理这个Bean的生命周期。如果将作用范围设置为scope=”singleton”，则将Bean放入IoC容器的缓存池中，并将Bean引用返回给调用者，Spring继续对这些Bean进行后续的生命管理。"></a>如果在\<bean>中指定Bean的作用范围为scope=”prototype”,则将Bean返回给调用者，调用者负责Bean后续生命的管理，Spring不再管理这个Bean的生命周期。如果将作用范围设置为scope=”singleton”，则将Bean放入IoC容器的缓存池中，并将Bean引用返回给调用者，Spring继续对这些Bean进行后续的生命管理。</bean></h5></li>
+</ol>
+<ol>
+<li><h5 id="xmlns-””-默认命名空间"><a href="#xmlns-””-默认命名空间" class="headerlink" title="xmlns=”” //默认命名空间"></a>xmlns=”” //默认命名空间</h5><h5 id="xmlns-xsi-””-xsi标准命名空间"><a href="#xmlns-xsi-””-xsi标准命名空间" class="headerlink" title="xmlns:xsi=””  //xsi标准命名空间"></a>xmlns:xsi=””  //xsi标准命名空间</h5><p>xsi:schemaLocation=””   //为每个命名空间指定具体的Schema文件</p>
+<p>如果命名空间的别名为空，则表示该命名空间为文档默认命名空间。</p>
 </li>
-<li><p>##### </p>
+</ol>
+<ol>
+<li><h5 id="Bean基本配置"><a href="#Bean基本配置" class="headerlink" title="Bean基本配置"></a>Bean基本配置</h5></li>
+</ol>
+<pre><code>一般情况下Spring IoC容器中的一个Bean对应配置文件中的一个\&lt;bean&gt;，eg: \&lt;bean id=&quot;foo&quot; class=&quot;com.smart.Foo&quot; /&gt; id为这个Bean的名称，通过容器的getBean(&quot;Foo&quot;)即可获取对应的Bean
+
+id和name都可以指定多个名字
+
+配置文件不允许出现两个相同id的\&lt;bean&gt;，但可以出现两个相同name。如果有多个name相同的，那么通过getBean(beanName)获取Bean时，将返回后面声明的那个Bean。因为覆盖。所以为了避免无意间Bean覆盖的隐患，应尽量使用id而非name命名Bean
+
+如果id和name两个属性都未指定，这将全限定类名作为Bean的名称。如果存在多个实现类相同的匿名，则通过getBean(&quot;co.smart.simple.Car#1&quot;)//第二个。第一个没有井号 
+
+##### 依赖注入
+
+属性注入 通过Set...
+
+​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;car&quot; class=&quot;com.smart.ditype.Car&quot;&gt;</div><div class="line">	&lt;property name=&quot;maxSpeed&quot;&gt;&lt;value&gt;200&lt;/value&gt;&lt;/property&gt;	</div><div class="line">&lt;/bean&gt;</div><div class="line">​</div></pre></td></tr></table></figure>
+
+
+构造函数注入（按类型匹配入参）(配置文件采用和元素标签顺序无关的策略)
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;car1&quot; class=&quot;com.smart.ditype.Car&quot;&gt;</div><div class="line">&lt;constructor-arg type=&quot;java.lang.String&quot;&gt;</div><div class="line">&lt;value&gt;红旗CA72&lt;/value&gt;</div><div class="line">&lt;/constructor-arg&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+
+
+    构造函数注入（按索引匹配入参） 避免相同类型，消除不确定性（索引从1开始）
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;car1&quot; class=&quot;com.smart.ditype.Car&quot;&gt;</div><div class="line">&lt;constructor-arg index=&quot;0&quot; value=&quot;红旗&quot; /&gt;</div><div class="line">&lt;constructor-arg index=&quot;1&quot; value=&quot;中国一汽&quot; /&gt;</div><div class="line">&lt;constructor-arg index=&quot;2&quot; value=&quot;20000&quot; /&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+
+
+如果拥有重载的构造函数，只有最后一个入参不一致，则联合类型和索引匹配入参
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;car1&quot; class=&quot;com.smart.ditype.Car&quot;&gt;</div><div class="line">&lt;constructor-arg index=&quot;0&quot;  type=&quot;java.lang.String&quot;&gt;</div><div class="line">&lt;value&gt;红旗CA72&lt;/value&gt;</div><div class="line">&lt;/constructor-arg&gt;</div><div class="line">&lt;constructor-arg index=&quot;1&quot;  type=&quot;java.lang.String&quot;&gt;</div><div class="line">&lt;value&gt;红旗CA72&lt;/value&gt;</div><div class="line">&lt;/constructor-arg&gt;</div><div class="line">&lt;constructor-arg index=&quot;2&quot;  type=&quot;int&quot;&gt;</div><div class="line">&lt;value&gt;200&lt;/value&gt;</div><div class="line">&lt;/constructor-arg&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+
+
+##### 工厂方法注入
+
+工厂类负责创建一个或多个目标类实例，工厂类方法一般以接口或抽象类变量的形式返回目标类实例。静态工厂方法比非静态工厂方法更易使用。
+
+​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=“car6” class=&quot;com.smart.ditype.CarFactory&quot; factory-method=&quot;createCar&quot;/&gt;</div><div class="line">​</div></pre></td></tr></table></figure>
+
+
+直接通过class属性指定工厂类，然后再通过factory-method指定对应的工厂方法
+</code></pre><ol>
+<li><p>XML中共有5个特殊字符，分别是&amp;,&lt;,&gt;,”,’.如果配置文件的注入值包括这些特殊字符，就需要特别处理。采用\&lt;![CDATA[]]&gt;标签，把包含特殊字符的字符串封装起来。或采用XML转义序列表示这些特殊字符。</p>
+</li>
+<li><p>在XML中可以通过ref元素添加引用，建立依赖</p>
+<p>可以通过以下属性引用容器中的其他Bean</p>
+<ul>
+<li>bean:通过该属性可以引用同一容器或父容器中的Bean，这是最常见的形式</li>
+<li>local:通过该属性只能引用同一配置文件中定义的Bean，可以利用XML解析器自动检验引用的合法性。</li>
+<li>parent:引用父容器中的Bean，如\<ref parent="car">的配置说明car的Bean是父容器中的Bean</ref></li>
+</ul>
+</li>
+<li><p>为属性设置null值，使用标签\<null></null></p>
+</li>
+<li><p>集合合并。允许子bean继承父bean的同名属性集合元素。在\<set>里面加上merge=”true”属性。如果为false，则不会进行合并</set></p>
+</li>
+<li><p>未采用p命名空间前，使用\<property>子元素配置Bean的属性；采用p命名空间后，采用\<bean>的元素属性配置Bean的属性</bean></property></p>
+<p>对于字面值属性，其格式为</p>
+<p>p:\&lt;属性名&gt;=”xxx”</p>
+<p>对于引用对象的属性，其格式为：</p>
+<p>p:\&lt;属性名&gt;-ref=”xxx”</p>
+<p> 正是由于P命名空间中的属性名是可变的，所以p命名空间没有对应的Schema定义文件。</p>
+</li>
+<li><p>用于替换他人的Bean必须实行MethodReplacer接口，Spring将利用该接口的方法去替换目标Bean的方法。并在配置时用替换类的方法去替换被替换类的方法。\<replaced-method name="被替换方法名" replacer="替换的类"> </replaced-method></p>
+</li>
+<li><p>配置信息时，通过父子\<bean>的继承关系就可以很好的消除重复的配置信息。abstract=”true”</bean></p>
+</li>
+<li><p>可以通过\<idref>标签引用另一个\<bean>的名字，在容器启动时，Spring负责检查引用关系的正确性，就可以提前发现错误。</bean></idref></p>
+</li>
+<li><p>@Component 可以对类进行标注，能被容器识别</p>
+<p>@Repository 用于对DAO实现类进行标注</p>
+<p>@Service 用于对Service实现类进行标注</p>
+<p>@Controller 用于对Controller实现类进行标注</p>
+<p>@Autowired Bean的依赖注入（如果希望找不到匹配的Bean完成注入也不要抛出异常，那么可以使用@Autowired(required=false)</p>
+<p>@Qualifier 如果有一个以上匹配的Bean时，可以通过@Qualifier限定Bean的名称</p>
 </li>
 </ol>
 
