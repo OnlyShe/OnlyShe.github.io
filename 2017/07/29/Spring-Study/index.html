@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/29/Spring-Study/index.html">
 <meta property="og:site_name" content="她在学习">
 <meta property="og:description" content="@SpringBootApplication组合了 3 个其他的注解，也就是@Configuration、@EnableAutoConfiguration 和 @ComponentScan @Configuration 它表明我们的这个类将会处理 Spring 的常规配置 @ComponentScan会告诉 Spring 去哪里查找 Spring 组 件（服务、控制器等）。在默认情况下，这个注解">
-<meta property="og:updated_time" content="2017-08-08T07:38:48.730Z">
+<meta property="og:updated_time" content="2017-08-09T01:26:12.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Study | 她在学习">
 <meta name="twitter:description" content="@SpringBootApplication组合了 3 个其他的注解，也就是@Configuration、@EnableAutoConfiguration 和 @ComponentScan @Configuration 它表明我们的这个类将会处理 Spring 的常规配置 @ComponentScan会告诉 Spring 去哪里查找 Spring 组 件（服务、控制器等）。在默认情况下，这个注解">
@@ -366,6 +366,8 @@ id和name都可以指定多个名字
 <p>@Controller 用于对Controller实现类进行标注</p>
 <p>@Autowired Bean的依赖注入（如果希望找不到匹配的Bean完成注入也不要抛出异常，那么可以使用@Autowired(required=false)</p>
 <p>@Qualifier 如果有一个以上匹配的Bean时，可以通过@Qualifier限定Bean的名称</p>
+</li>
+<li><p>@responsebody表示该方法的返回结果直接写入HTTP response body中<br>一般在异步获取数据时使用，在使用@RequestMapping后，返回值通常解析为跳转路径，加上@responsebody后返回结果不会被解析为跳转路径，而是直接写入HTTP response body中。比如异步获取json数据，加上@responsebody后，会直接返回json数据。</p>
 </li>
 </ol>
 

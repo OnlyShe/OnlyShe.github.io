@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/07/Jsoup/index.html">
 <meta property="og:site_name" content="她在学习">
 <meta property="og:description" content="要先通过HttpClient得到String，然后再通过Jsoup进行转化（Jsoup.parse(String)）。因为HttpClient是从网上抓取页面使用，并可以设置代理等。在抓取上Jsoup比较弱，API简单，主要功能体现在解析。  可以通过DOM方法遍历文档 查找元素：  getElementById(String id) getElementsByTag(String tag) g">
-<meta property="og:updated_time" content="2017-08-07T10:02:08.870Z">
+<meta property="og:updated_time" content="2017-08-11T03:13:39.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jsoup | 她在学习">
 <meta name="twitter:description" content="要先通过HttpClient得到String，然后再通过Jsoup进行转化（Jsoup.parse(String)）。因为HttpClient是从网上抓取页面使用，并可以设置代理等。在抓取上Jsoup比较弱，API简单，主要功能体现在解析。  可以通过DOM方法遍历文档 查找元素：  getElementById(String id) getElementsByTag(String tag) g">
@@ -202,8 +202,77 @@ classes that you can use:
 <li><code>html(String value)</code></li>
 </ul>
 </li>
-<li><p>​</p>
+<li><p>使用选择器语法来查找元素</p>
+<p>这个相比利用DOM方法，可能出错可能性更小，因为一些Class可能在之前的某个地方出现过，通过getElementByClass() 可能取到其他的class，如果这个class中不包含我们继续要查找的元素，则会报错。所以使用选择器出错的可能性会更小。</p>
+<p>可以使用<code>Element.select(String selector)</code> 和 <code>Elements.select(String selector)</code> 方法</p>
+<h3 id="Selector选择器概述"><a href="#Selector选择器概述" class="headerlink" title="Selector选择器概述"></a>Selector选择器概述</h3><ul>
+<li><code>tagname</code>: 通过标签查找元素，比如：<code>a</code></li>
+<li><code>ns|tag</code>: 通过标签在命名空间查找元素，比如：可以用 <code>fb|name</code> 语法来查找 <code>&lt;fb:name&gt;</code> 元素</li>
+<li><code>#id</code>: 通过ID查找元素，比如：<code>#logo</code></li>
+<li><code>.class</code>: 通过class名称查找元素，比如：<code>.masthead</code></li>
+<li><code>[attribute]</code>: 利用属性查找元素，比如：<code>[href]</code></li>
+<li><code>[^attr]</code>: 利用属性名前缀来查找元素，比如：可以用<code>[^data-]</code> 来查找带有HTML5 Dataset属性的元素</li>
+<li><code>[attr=value]</code>: 利用属性值来查找元素，比如：<code>[width=500]</code></li>
+<li><code>[attr^=value]</code>, <code>[attr$=value]</code>, <code>[attr*=value]</code>: 利用匹配属性值开头、结尾或包含属性值来查找元素，比如：<code>[href*=/path/]</code></li>
+<li><code>[attr~=regex]</code>: 利用属性值匹配正则表达式来查找元素，比如： <code>img[src~=(?i)\.(png|jpe?g)]</code></li>
+<li><code>*</code>: 这个符号将匹配所有元素</li>
+</ul>
+<h3 id="Selector选择器组合使用"><a href="#Selector选择器组合使用" class="headerlink" title="Selector选择器组合使用"></a>Selector选择器组合使用</h3><ul>
+<li><code>el#id</code>: 元素+ID，比如： <code>div#logo</code></li>
+<li><code>el.class</code>: 元素+class，比如： <code>div.masthead</code></li>
+<li><code>el[attr]</code>: 元素+class，比如： <code>a[href]</code></li>
+<li>任意组合，比如：<code>a[href].highlight</code></li>
+<li><code>ancestor child</code>: 查找某个元素下子元素，比如：可以用<code>.body p</code> 查找在”body”元素下的所有 <code>p</code>元素</li>
+<li><code>parent &gt; child</code>: 查找某个父元素下的直接子元素，比如：可以用<code>div.content &gt; p</code> 查找 <code>p</code> 元素，也可以用<code>body &gt; *</code> 查找body标签下所有直接子元素</li>
+<li><code>siblingA + siblingB</code>: 查找在A元素之前第一个同级元素B，比如：<code>div.head + div</code></li>
+<li><code>siblingA ~ siblingX</code>: 查找A元素之前的同级X元素，比如：<code>h1 ~ p</code></li>
+<li><code>el, el, el</code>:多个选择器组合，查找匹配任一选择器的唯一元素，例如：<code>div.masthead, div.logo</code></li>
+</ul>
+<h3 id="伪选择器selectors"><a href="#伪选择器selectors" class="headerlink" title="伪选择器selectors"></a>伪选择器selectors</h3><ul>
+<li><code>:lt(n)</code>: 查找哪些元素的同级索引值（它的位置在DOM树中是相对于它的父节点）小于n，比如：<code>td:lt(3)</code> 表示小于三列的元素</li>
+<li><code>:gt(n)</code>:查找哪些元素的同级索引值大于<code>n``，比如</code>： <code>div p:gt(2)</code>表示哪些div中有包含2个以上的p元素</li>
+<li><code>:eq(n)</code>: 查找哪些元素的同级索引值与<code>n</code>相等，比如：<code>form input:eq(1)</code>表示包含一个input标签的Form元素</li>
+<li><code>:has(seletor)</code>: 查找匹配选择器包含元素的元素，比如：<code>div:has(p)</code>表示哪些div包含了p元素</li>
+<li><code>:not(selector)</code>: 查找与选择器不匹配的元素，比如： <code>div:not(.logo)</code> 表示不包含 class=logo 元素的所有 div 列表</li>
+<li><code>:contains(text)</code>: 查找包含给定文本的元素，搜索不区分大不写，比如： <code>p:contains(jsoup)</code></li>
+<li><code>:containsOwn(text)</code>: 查找直接包含给定文本的元素</li>
+<li><code>:matches(regex)</code>: 查找哪些元素的文本匹配指定的正则表达式，比如：<code>div:matches((?i)login)</code></li>
+<li><code>:matchesOwn(regex)</code>: 查找自身包含文本匹配指定正则表达式的元素</li>
+<li>注意：上述伪选择器索引是从0开始的，也就是说第一个元素索引值为0，第二个元素index为1等</li>
+</ul>
 </li>
+<li><p>从元素中抽取属性、文本和HTML</p>
+<ul>
+<li>要取得一个属性的值，可以使用<code>Node.attr(String key)</code> 方法</li>
+<li>对于一个元素中的文本，可以使用<code>Element.text()</code>方法</li>
+<li>对于要取得元素或属性中的HTML内容，可以使用<code>Element.html()</code>, 或 <code>Node.outerHtml()</code>方法</li>
+</ul>
+</li>
+<li><p>处理URLs</p>
+<ol>
+<li>在你解析文档时确保有指定<code>base URI</code>，然后</li>
+<li>使用 <code>abs:</code> 属性前缀来取得包含<code>base URI</code>的绝对路径。代码如下： </li>
+</ol>
+</li>
+<li><p>设置属性的值</p>
+<p>可以使用属性设置方法 <code>Element.attr(String key, String value)</code>, 和 <code>Elements.attr(String key, String value)</code>.</p>
+<p>假如你需要修改一个元素的 <code>class</code> 属性，可以使用 <code>Element.addClass(String className)</code> 和 <code>Element.removeClass(String className)</code> 方法。</p>
+<p><code>Elements</code> 提供了批量操作元素属性和class的方法</p>
+</li>
+<li><p>设置一个元素的HTML内容</p>
+<ul>
+<li><code>Element.html(String html)</code> 这个方法将先清除元素中的HTML内容，然后用传入的HTML代替。</li>
+<li><code>Element.prepend(String first)</code> 和 <code>Element.append(String last)</code> 方法用于在分别在元素内部HTML的前面和后面添加HTML内容</li>
+<li><code>Element.wrap(String around)</code> 对元素包裹一个外部HTML内容。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Element div = doc.select(&quot;div&quot;).first(); // &lt;div&gt;&lt;/div&gt;</div><div class="line">div.html(&quot;&lt;p&gt;lorem ipsum&lt;/p&gt;&quot;); // &lt;div&gt;&lt;p&gt;lorem ipsum&lt;/p&gt;&lt;/div&gt;</div><div class="line">div.prepend(&quot;&lt;p&gt;First&lt;/p&gt;&quot;);//在div前添加html内容</div><div class="line">div.append(&quot;&lt;p&gt;Last&lt;/p&gt;&quot;);//在div之后添加html内容</div><div class="line">// 添完后的结果: &lt;div&gt;&lt;p&gt;First&lt;/p&gt;&lt;p&gt;lorem ipsum&lt;/p&gt;&lt;p&gt;Last&lt;/p&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">Element span = doc.select(&quot;span&quot;).first(); // &lt;span&gt;One&lt;/span&gt;</div><div class="line">span.wrap(&quot;&lt;li&gt;&lt;a href=&apos;http://example.com/&apos;&gt;&lt;/a&gt;&lt;/li&gt;&quot;);</div><div class="line">// 添完后的结果: &lt;li&gt;&lt;a href=&quot;http://example.com&quot;&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置元素的文本内容</p>
+<ul>
+<li><code>Element.text(String text)</code> 将清除一个元素中的内部HTML内容，然后提供的文本进行代替</li>
+<li><code>Element.prepend(String first)</code> 和 <code>Element.append(String last)</code> 将分别在元素的内部html前后添加文本节点。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Element div = doc.select(&quot;div&quot;).first(); // &lt;div&gt;&lt;/div&gt;</div><div class="line">div.text(&quot;five &gt; four&quot;); // &lt;div&gt;five &amp;gt; four&lt;/div&gt;</div><div class="line">div.prepend(&quot;First &quot;);</div><div class="line">div.append(&quot; Last&quot;);</div><div class="line">// now: &lt;div&gt;First five &amp;gt; four Last&lt;/div&gt;</div></pre></td></tr></table></figure></li>
 </ol>
 
   </section>
