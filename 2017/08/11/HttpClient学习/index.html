@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      HttpClient学习 | 她在学习 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="NieNie">
+    
+    
+
+    <meta name="description" content="HttpClienthttpClient最关键的方法是执行Http请求的方法execute  step1:创建一个HttpClient对象目前HttpClient的实现类为CloseableHttpClient。创建实例的方法有两种：  使用CloseableHttpClient的工厂类HttpClients的方法来创建实例。HttpClients提供了根据各种默认配置来创建CloseableH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HttpClient学习 | 她在学习">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/HttpClient学习/index.html">
+<meta property="og:site_name" content="她在学习">
+<meta property="og:description" content="HttpClienthttpClient最关键的方法是执行Http请求的方法execute  step1:创建一个HttpClient对象目前HttpClient的实现类为CloseableHttpClient。创建实例的方法有两种：  使用CloseableHttpClient的工厂类HttpClients的方法来创建实例。HttpClients提供了根据各种默认配置来创建CloseableH">
+<meta property="og:updated_time" content="2017-08-11T09:05:52.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HttpClient学习 | 她在学习">
+<meta name="twitter:description" content="HttpClienthttpClient最关键的方法是执行Http请求的方法execute  step1:创建一个HttpClient对象目前HttpClient的实现类为CloseableHttpClient。创建实例的方法有两种：  使用CloseableHttpClient的工厂类HttpClients的方法来创建实例。HttpClients提供了根据各种默认配置来创建CloseableH">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">她在学习</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">HttpClient学习</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-08-11" class="post-meta__date date">2017-08-11</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <ol>
+<li><h3 id="HttpClient"><a href="#HttpClient" class="headerlink" title="HttpClient"></a>HttpClient</h3><p>httpClient最关键的方法是执行Http请求的方法execute</p>
+</li>
+<li><h3 id="step1-创建一个HttpClient对象"><a href="#step1-创建一个HttpClient对象" class="headerlink" title="step1:创建一个HttpClient对象"></a>step1:创建一个HttpClient对象</h3><p>目前HttpClient的实现类为CloseableHttpClient。创建实例的方法有两种：</p>
+<ol>
+<li>使用CloseableHttpClient的工厂类HttpClients的方法来创建实例。HttpClients提供了根据各种默认配置来创建CloseableHttpClient实例的快捷方法。最简单的实例化方式是调用HttpClients.createDefault()。</li>
+<li>使用CloseableHttpClient的builder类HttpClientBuilder，先对一些属性进行配置（采用装饰者模式，不断的.setxxxxx().setxxxxxxxx()就行了），再调用build方法来创建实例。上面的HttpClients.createDefault()实际上调用的也就是HttpClientBuilder.create().build()。</li>
+</ol>
+</li>
+<li><h3 id="HttpClientConnectionManager"><a href="#HttpClientConnectionManager" class="headerlink" title="HttpClientConnectionManager"></a>HttpClientConnectionManager</h3><p>HttpClientConnectionManager是一个HTTP连接管理器。负责新HTTP连接的创建、管理连接的生命周期还有保证一个HTTP连接在某个时刻只被一个线程使用。如果一个被监管的connection被释放或者被明确关闭，尽管此时manager仍持有该连接的代理，但是这个connection的状态不会被改变也不能再执行任何的I/O操作。</p>
+<p>有两种具体实现：</p>
+<h5 id="a、BasicHttpClientConnectionManager"><a href="#a、BasicHttpClientConnectionManager" class="headerlink" title="a、BasicHttpClientConnectionManager"></a>a、BasicHttpClientConnectionManager</h5><p>BasicHttpClientConnectionManager每次只管理一个connection。不过，虽然它是thread-safe的，但由于它只管理一个连接，所以只能被一个线程使用。它在管理连接的时候如果发现有相同route的请求，会复用之前已经创建的连接，如果新来的请求不能复用之前的连接，它会关闭现有的连接并重新打开它来响应新的请求。</p>
+<h5 id="b、PoolingHttpClientConnectionManager"><a href="#b、PoolingHttpClientConnectionManager" class="headerlink" title="b、PoolingHttpClientConnectionManager"></a>b、PoolingHttpClientConnectionManager</h5><p>PoolingHttpClientConnectionManager与BasicHttpClientConnectionManager不同，它管理着一个连接池(连接池管理部分在第7部分有详细介绍)。它可以同时为多个线程服务。每次新来一个请求，如果在连接池中已经存在route相同并且可用的connection，连接池就会直接复用这个connection；当不存在route相同的connection，就新建一个connection为之服务；如果连接池已满，则请求会等待直到被服务或者超时。</p>
+<p>如果不进行配置的话，New出来的实例是使用PoolingHttpClientConnectionManager</p>
+</li>
+<li><h3 id="RequestConfig"><a href="#RequestConfig" class="headerlink" title="RequestConfig"></a>RequestConfig</h3><p>是对request的一些配置。里面有三个超时时间。默认都为0，也就意味着无限等待。为别为。</p>
+<ol>
+<li><p>connectionRequestTimeout 从连接池中取连接的超时时间。</p>
+<p>定义是从ConnectionManager管理的连接池中取出连接的超时时间。如果连接池中没有可用的连接，则会被阻塞，最长等待connectionRequestTimeout的时间，如果还没有被服务，则抛出ConnectionPoolTimeoutException异常，不继续等待。</p>
+</li>
+<li><p>connectTimeout—连接超时时间</p>
+<p>这个时间定义了通过网络与服务器建立连接的超时时间，也就是取得了连接池中的某个连接之后到接通目标url的连接等待时间。发生超时，会抛出ConnectionTimeoutException异常。</p>
+</li>
+<li><p>socketTimeout—请求超时时间</p>
+<p>这个时间定义了socket读数据的超时时间，也就是连接到服务器之后到从服务器获取响应数据需要等待的时间，或者说是连接上一个url之后到获取response的返回等待时间。发生超时，会抛出SocketTimeoutException异常。</p>
+</li>
+</ol>
+</li>
+<li><h3 id="step2-创建一个Request对象"><a href="#step2-创建一个Request对象" class="headerlink" title="step2:创建一个Request对象"></a>step2:创建一个Request对象</h3><p>HttpClient支持所有的HTTP1.1中的所有定义的请求类型：GET、HEAD、POST、PUT、DELETE、TRACE和OPTIONS。对使用的类为HttpGet、HttpHead、HttpPost、HttpPut、HttpDelete、HttpTrace和HttpOptions。Request的对象建立很简单，一般用目标url来构造就好了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HttpGet get=new HttpGet(url);</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="step3-执行Requset请求"><a href="#step3-执行Requset请求" class="headerlink" title="step3:执行Requset请求"></a>step3:执行Requset请求</h3><p>执行Request请求就是调用HttpClient的execute方法。最简单的使用方法是调用execute(final HttpUriRequest request)。</p>
+<p>HttpClient允许http连接在特定的Http上下文中执行，HttpContext是跟一个连接相关联的，所以它也只能属于一个线程，如果没有特别设定，在execute的过程中，HttpClient会自动为每一个connection  new一个HttpClientHttpContext。</p>
+<h5 id="整个execute执行的常规流程为："><a href="#整个execute执行的常规流程为：" class="headerlink" title="整个execute执行的常规流程为："></a>整个execute执行的常规流程为：</h5><p>new一个http context</p>
+<p>|</p>
+<p>取出Request和URL</p>
+<p>|</p>
+<p>根据HttpRoute的配置看是否需要重写URL</p>
+<p>|</p>
+<p>根据URL的host、port和scheme设置target</p>
+<p>|</p>
+<p>在发送前用http协议拦截器处理request的各个部分</p>
+<p>|</p>
+<p>取得验证状态、user token来验证身份</p>
+<p>|</p>
+<p>从连接池中取一个可用的连接</p>
+<p>|</p>
+<p>根据request的各种配置参数以及取得的connection构造一个connManaged</p>
+<p>|</p>
+<p>打开managed的connection（包括创建route、dns解析、绑定socket、socket连接等）</p>
+<p>|</p>
+<p>请求数据（包括发送请求和接收response两个阶段）</p>
+<p>|</p>
+<p>查看keepAlive策略，判断连接是否要复用，并设置相应标识</p>
+<p>|</p>
+<p>返回response</p>
+<p>|</p>
+<p>用http协议拦截器处理response的各个部分</p>
+</li>
+<li><h3 id="step4-处理response"><a href="#step4-处理response" class="headerlink" title="step4:处理response"></a>step4:处理response</h3><p>HttpReaponse是将服务端发回的Http响应解析后的对象。CloseableHttpClient的execute方法返回的response都是CloseableHttpResponse类型。可以getFirstHeader(String)、getLastHeader(String)、headerIterator（String）取得某个Header name对应的迭代器、getAllHeaders()、getEntity、getStatus等，一般这几个方法比较常用。</p>
+<p>一般来说一个response中的entity只能被使用一次，它是一个流，这个流被处理完就不再存在了。</p>
+<p>想要复用一个connection就必须要让它占有的系统资源得到正确释放。释放资源有两种方法：</p>
+<p>a、关闭和entity相关的content stream</p>
+<p>如果是使用outputStream就要保证整个entity都被write out，如果是inputStream，则再最后要记得调用inputStream.close()。或者使用EntityUtils.consume(entity)或EntityUtils.consumeQuietly(entity)来让entity被完全耗尽（后者不抛异常）来做这一工作。EntityUtils中有个toString方法也很方便的（调用这个方法最后也会自动把inputStream close掉的），不过只有在可以确定收到的entity不是特别大的情况下才能使用。</p>
+<p>如果没有让整个entity被fully consumed，则该连接是不能被复用的，很快就会因为在连接池中取不到可用的连接超时或者阻塞在这里</p>
+<p>  b、关闭response</p>
+<p>执行response.close()虽然会正确释放掉该connection占用的所有资源，但是这是一种比较暴力的方式，采用这种方式之后，这个connection就不能被重复使用了。</p>
+<p>关闭stream和response的区别在于前者会尝试保持底层的连接alive，而后者会直接shut down并且丢弃connection。</p>
+</li>
+<li><h3 id="step5-关闭HttpClient"><a href="#step5-关闭HttpClient" class="headerlink" title="step5:关闭HttpClient"></a>step5:关闭HttpClient</h3><p>调用httpClient.close()会先shut down connection manager,然后再释放HttpClient所占用的所有资源，关闭所有在使用或者空闲的connection包括底层socket。由于这里把它所使用的connection manager关闭了，所以在下次还要进行http请求的时候，要重新new一个connection manager来build一个HttpClient。</p>
+</li>
+<li><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
+</ol>
+<p>使用HttpClient的时候特别需要注意的有下面几个地方：</p>
+<ul>
+<li>(1)连接池最大连接数，不配置为20</li>
+<li>(2)同个route的最大连接数，不配置为2</li>
+<li>(3)去连接池中取连接的超时时间，不配置则无限期等待</li>
+<li>(4)与目标服务器建立连接的超时时间，不配置则无限期等待</li>
+<li>(5)去目标服务器取数据的超时时间，不配置则无限期等待</li>
+<li>(6)要fully consumed entity，才能正确释放底层资源</li>
+<li>(7)同个host但ip有多个的情况，请谨慎使用单例的HttpClient和连接池</li>
+<li>(8)HTTP1.1默认支持的是长连接，如果想使用短连接，要在request上加Connection:close的header，不然长连接是不可能自动被关掉的！</li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
