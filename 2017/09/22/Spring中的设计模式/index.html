@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Spring中的设计模式 | 她在学习 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="NieNie">
+    
+    
+
+    <meta name="description" content="解释器设计模式 此模式基于表达式和评估器部分，第一个代表一个要分析的事情。这个分析是由评价者来做出的，  反射    Class类提供了四个public方法，用于获取某个类的构造方法。  1234Constructor getConstructor(Class[] params)     根据构造函数的参数，返回一个具体的具有public属性的构造函数Constructor getConstru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring中的设计模式 | 她在学习">
+<meta property="og:url" content="http://yoursite.com/2017/09/22/Spring中的设计模式/index.html">
+<meta property="og:site_name" content="她在学习">
+<meta property="og:description" content="解释器设计模式 此模式基于表达式和评估器部分，第一个代表一个要分析的事情。这个分析是由评价者来做出的，  反射    Class类提供了四个public方法，用于获取某个类的构造方法。  1234Constructor getConstructor(Class[] params)     根据构造函数的参数，返回一个具体的具有public属性的构造函数Constructor getConstru">
+<meta property="og:updated_time" content="2017-09-22T08:03:03.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring中的设计模式 | 她在学习">
+<meta name="twitter:description" content="解释器设计模式 此模式基于表达式和评估器部分，第一个代表一个要分析的事情。这个分析是由评价者来做出的，  反射    Class类提供了四个public方法，用于获取某个类的构造方法。  1234Constructor getConstructor(Class[] params)     根据构造函数的参数，返回一个具体的具有public属性的构造函数Constructor getConstru">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">她在学习</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Spring中的设计模式</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-09-22" class="post-meta__date date">2017-09-22</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <ol>
+<li><p>解释器设计模式</p>
+<p>此模式基于表达式和评估器部分，第一个代表一个要分析的事情。这个分析是由评价者来做出的，</p>
+</li>
+<li><p>反射</p>
+</li>
+</ol>
+<ul>
+<li>Class类提供了四个public方法，用于获取某个类的构造方法。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Constructor getConstructor(Class[] params)     根据构造函数的参数，返回一个具体的具有public属性的构造函数</div><div class="line">Constructor getConstructors()     返回所有具有public属性的构造函数数组</div><div class="line">Constructor getDeclaredConstructor(Class[] params)     根据构造函数的参数，返回一个具体的构造函数（不分public和非public属性）</div><div class="line">Constructor getDeclaredConstructors()    返回该类中所有的构造函数数组（不分public和非public属性）</div></pre></td></tr></table></figure>
+<ul>
+<li>四种获取成员方法的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Method getMethod(String name, Class[] params)    根据方法名和参数，返回一个具体的具有public属性的方法</div><div class="line">Method[] getMethods()    返回所有具有public属性的方法数组</div><div class="line">Method getDeclaredMethod(String name, Class[] params)    根据方法名和参数，返回一个具体的方法（不分public和非public属性）</div><div class="line">Method[] getDeclaredMethods()    返回该类中的所有的方法数组（不分public和非public属性）</div></pre></td></tr></table></figure>
+<ul>
+<li>四种获取成员属性的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Field getField(String name)    根据变量名，返回一个具体的具有public属性的成员变量</div><div class="line">Field[] getFields()    返回具有public属性的成员变量的数组</div><div class="line">Field getDeclaredField(String name)    根据变量名，返回一个成员变量（不分public和非public属性）</div><div class="line">Field[] getDelcaredField()    返回所有成员变量组成的数组（不分public和非public属性）</div></pre></td></tr></table></figure>
+<ol>
+<li><p>工厂模式</p>
+<p>分成三类：</p>
+<ol>
+<li>简单工厂模式</li>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+</ol>
+<p>这三种模式从上到下逐步抽象，并且更具有一般性。</p>
+<h5 id="工厂方式模式"><a href="#工厂方式模式" class="headerlink" title="工厂方式模式"></a>工厂方式模式</h5><p>一个抽象产品类，可以派生多个具体产品类</p>
+<p>一个抽象工厂类，可以派生出多个具体工厂类。  </p>
+<p>每个具体工厂类只能创建一个具体产品类的实例。</p>
+<h5 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h5><p>多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。</p>
+<p>一个抽象工厂类，可以派生出多个具体工厂类。  </p>
+<p>每个具体工厂类可以创建多个具体产品类的实例。</p>
+<h5 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h5><p>工厂方法模式只有一个抽象产品类，而抽象工厂模式有多个。</p>
+<p>工厂方法模式的具体工厂类只能创造一个具体产品类的实例，而抽象工厂模式可以创造多个。</p>
+<h4 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">//产品</div><div class="line">abstract class BMW &#123;  </div><div class="line">    public BMW()&#123;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">public class BMW320 extends BMW &#123;  </div><div class="line">    public BMW320() &#123;  </div><div class="line">        System.out.println(&quot;制造--&gt;BMW320&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">public class BMW523 extends BMW&#123;  </div><div class="line">    public BMW523()&#123;  </div><div class="line">        System.out.println(&quot;制造--&gt;BMW523&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">//工厂类</div><div class="line">public class Factory &#123;  </div><div class="line">    public BMW createBMW(int type) &#123;  </div><div class="line">        switch (type) &#123;  </div><div class="line">          </div><div class="line">        case 320:  </div><div class="line">            return new BMW320();  </div><div class="line">  </div><div class="line">        case 523:  </div><div class="line">            return new BMW523();  </div><div class="line">  </div><div class="line">        default:  </div><div class="line">            break;  </div><div class="line">        &#125;  </div><div class="line">        return null;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">//客户类</div><div class="line">public class Customer &#123;  </div><div class="line">    public static void main(String[] args) &#123;  </div><div class="line">        Factory factory = new Factory();  </div><div class="line">        BMW bmw320 = factory.createBMW(320);  </div><div class="line">        BMW bmw523 = factory.createBMW(523);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  简单工厂模式又称静态工厂方法模式。重命名上就可以看出这个模式一定很简单。它存在的目的很简单：定义一个用于创建对象的接口。<br>​      先来看看它的组成：<br>​         1) 工厂类角色：这是本模式的核心，含有一定的商业逻辑和判断逻辑，用来创建产品<br>​         2) 抽象产品角色：它一般是具体产品继承的父类或者实现的接口。<br>​         3) 具体产品角色：工厂类所创建的对象就是此角色的实例。在java中由一个具体类实现。</p>
+<p>对于新产品的加入，工厂类是很被动的。对于这样的工厂类，我们称它为全能类或者上帝类。 </p>
+<blockquote>
+<p>开闭原则：对于扩展是开放的，对于修改是关闭的，这意味着模块的行为是可以扩展的。</p>
+</blockquote>
+<h4 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h4><p>工厂方法模式去掉了简单工厂模式中工厂方法的静态属性，使得它可以被子类继承。这样在简单工厂模式里集中在工厂方法上的压力可以由工厂方法模式里不同的工厂子类来分担。<br>工厂方法模式组成：<br>​       1)抽象工厂角色： 这是工厂方法模式的核心，它与应用程序无关。是具体工厂角色必须实现的接口或者必须继承的父类。在java中它由抽象类或者接口来实现。<br>​       2)具体工厂角色：它含有和具体业务逻辑有关的代码。由应用程序调用以创建对应的具体产品的对象。<br>​       3)抽象产品角色：它是具体产品继承的父类或者是实现的接口。在java中一般有抽象类或者接口来实现。<br>​       4)具体产品角色：具体工厂角色所创建的对象就是此角色的实例。在java中由具体的类来实现。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">//产品</div><div class="line">abstract class BMW &#123;  </div><div class="line">    public BMW()&#123;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">public class BMW320 extends BMW &#123;  </div><div class="line">    public BMW320() &#123;  </div><div class="line">        System.out.println(&quot;制造--&gt;BMW320&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">public class BMW523 extends BMW&#123;  </div><div class="line">    public BMW523()&#123;  </div><div class="line">        System.out.println(&quot;制造--&gt;BMW523&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">//创建工厂</div><div class="line">interface FactoryBMW &#123;  </div><div class="line">    BMW createBMW();  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">public class FactoryBMW320 implements FactoryBMW&#123;  </div><div class="line">  </div><div class="line">    @Override  </div><div class="line">    public BMW320 createBMW() &#123;  </div><div class="line">  </div><div class="line">        return new BMW320();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;  </div><div class="line">public class FactoryBMW523 implements FactoryBMW &#123;  </div><div class="line">    @Override  </div><div class="line">    public BMW523 createBMW() &#123;  </div><div class="line">  </div><div class="line">        return new BMW523();  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">//客户</div><div class="line">public class Customer &#123;  </div><div class="line">    public static void main(String[] args) &#123;  </div><div class="line">        FactoryBMW320 factoryBMW320 = new FactoryBMW320();  </div><div class="line">        BMW320 bmw320 = factoryBMW320.createBMW();  </div><div class="line">  </div><div class="line">        FactoryBMW523 factoryBMW523 = new FactoryBMW523();  </div><div class="line">        BMW523 bmw523 = factoryBMW523.createBMW();  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="抽象工厂模式-1"><a href="#抽象工厂模式-1" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">//产品类</div><div class="line">//发动机以及型号    </div><div class="line">public interface Engine &#123;    </div><div class="line">  </div><div class="line">&#125;    </div><div class="line">public class EngineA extends Engine&#123;    </div><div class="line">    public EngineA()&#123;    </div><div class="line">        System.out.println(&quot;制造--&gt;EngineA&quot;);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">public class EngineBextends Engine&#123;    </div><div class="line">    public EngineB()&#123;    </div><div class="line">        System.out.println(&quot;制造--&gt;EngineB&quot;);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">  </div><div class="line">//空调以及型号    </div><div class="line">public interface Aircondition &#123;    </div><div class="line">  </div><div class="line">&#125;    </div><div class="line">public class AirconditionA extends Aircondition&#123;    </div><div class="line">    public AirconditionA()&#123;    </div><div class="line">        System.out.println(&quot;制造--&gt;AirconditionA&quot;);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">public class AirconditionB extends Aircondition&#123;    </div><div class="line">    public AirconditionB()&#123;    </div><div class="line">        System.out.println(&quot;制造--&gt;AirconditionB&quot;);    </div><div class="line">    &#125;    </div><div class="line">&#125;   </div><div class="line"></div><div class="line">//工厂类</div><div class="line">//创建工厂的接口    </div><div class="line">public interface AbstractFactory &#123;    </div><div class="line">    //制造发动机  </div><div class="line">    public Engine createEngine();  </div><div class="line">    //制造空调   </div><div class="line">    public Aircondition createAircondition();   </div><div class="line">&#125;    </div><div class="line">  </div><div class="line">  </div><div class="line">//为宝马320系列生产配件    </div><div class="line">public class FactoryBMW320 implements AbstractFactory&#123;    </div><div class="line">        </div><div class="line">    @Override    </div><div class="line">    public Engine createEngine() &#123;      </div><div class="line">        return new EngineA();    </div><div class="line">    &#125;    </div><div class="line">    @Override    </div><div class="line">    public Aircondition createAircondition() &#123;    </div><div class="line">        return new AirconditionA();    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line">//宝马523系列  </div><div class="line">public class FactoryBMW523 implements AbstractFactory &#123;    </div><div class="line">    </div><div class="line">     @Override    </div><div class="line">    public Engine createEngine() &#123;      </div><div class="line">        return new EngineB();    </div><div class="line">    &#125;    </div><div class="line">    @Override    </div><div class="line">    public Aircondition createAircondition() &#123;    </div><div class="line">        return new AirconditionB();    </div><div class="line">    &#125;    </div><div class="line">&#125;   </div><div class="line"></div><div class="line">//客户</div><div class="line">public class Customer &#123;    </div><div class="line">    public static void main(String[] args)&#123;    </div><div class="line">        //生产宝马320系列配件  </div><div class="line">        FactoryBMW320 factoryBMW320 = new FactoryBMW320();    </div><div class="line">        factoryBMW320.createEngine();  </div><div class="line">        factoryBMW320.createAircondition();  </div><div class="line">            </div><div class="line">        //生产宝马523系列配件    </div><div class="line">        FactoryBMW523 factoryBMW523 = new FactoryBMW523();    </div><div class="line">        factoryBMW320.createEngine();  </div><div class="line">        factoryBMW320.createAircondition();  </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
